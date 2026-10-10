@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Configuracion general",
+    "settings": [
+      {
+        "type": "text",
+        "id": "nombre_tienda",
+        "label": "Nombre de la tienda",
+        "default": "Mi tienda"
+      }
+    ]
+  }
+]

@@ -9,22 +9,15 @@
  */
 {
   "sections": {
-    "banner_principal": {
-      "type": "banner",
+    "hero": {
+      "type": "hero",
       "settings": {
-        "titulo": "Bienvenido a mi tienda",
-        "subtitulo": "Encuentra tus productos favoritos"
-      }
-    },
-    "productos_destacados": {
-      "type": "productos-destacados",
-      "settings": {
-        "titulo": "Productos destaca"
+        "heading": "Mi tienda",
+        "subheading": "Find the best products here"
       }
     }
   },
   "order": [
-    "banner_principal",
-    "productos_destacados"
+    "hero"
   ]
 }
