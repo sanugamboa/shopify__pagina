@@ -1,0 +1,145 @@
+{{ 'header.css' | asset_url |  stylesheet_tag }}
+
+<style>
+    header {
+        background-color: {{ section.settings.fondo_header }};
+    }
+
+    .header--transparente {
+        background-color: transparent;
+    }
+
+    .header--fijo {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    header a {
+        color: {{ section.settings.color_texto }};
+        text-decoration: none;
+    }
+
+    header li {
+        list-style: none;
+    }
+
+    header ul {
+        padding: 0;
+        margin: 0;
+    }
+</style>
+
+<header class="header
+    {% if section.settings.fondo_transparente %}
+        header--transparente
+    {% endif %}
+    {% if section.settings.header-fijo %}
+        header--fijo
+    {% endif %}
+">
+    <!-- Logo de la tienda -->
+    <div class="header__logo">
+        <a href="/">
+            {{ section.settings.logo
+            | image_url: width: section.settings.logo_width
+            | image_tag: alt: shop.name
+            }}
+        </a>
+    </div>
+
+    <!-- Menú de navegación -->
+    <nav class="header__nav">
+        <ul>
+        {% for link in section.settings.menu_header.links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+        </ul>
+    </nav>
+
+    <!-- Iconos de carrito y búsqueda -->
+    <div class="header__icons">
+        {% if section.settings.carrito_check %}
+            <a href="/cart">
+                <img
+                    src="{{ 'icon-cart.svg' | asset_url }}"
+                    alt="Carrito"
+                    width="24"
+                    height="24"
+                >
+            </a>
+        {% endif %}
+        <a href="/search">
+            <img
+                src="{{ 'search-icon.svg' | asset_url }}"
+                alt="Buscador"
+                width="24"
+                height="24"
+            >
+        </a>
+    </div>
+</header>
+
+{%  schema  %}
+    {
+        "name": "Header",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "logo",
+                "label": "Logo de la tienda"
+            },
+            {
+                "type": "range",
+                "id": "logo_width",
+                "label": "Ancho del logo",
+                "min": 100,
+                "max": 500,
+                "step": 10,
+                "unit": "px",
+                "default": 150
+            },
+            {
+                "type": "link_list",
+                "id": "menu_header",
+                "label": "Menú de navegación",
+                "default": "main-menu"
+            },
+            {
+                "type": "checkbox",
+                "id": "carrito_check",
+                "label": "Mostrar/Ocultar icono",
+                "default": true
+            },
+            {
+                "type": "color",
+                "id": "fondo_header",
+                "label": "Fondo del encabezado",
+                "default": "#f4ebdd"
+            },
+            {
+                "type": "color",
+                "id": "color_texto",
+                "label": "Color del texto e icono",
+                "default": "#30251f"
+            },
+            {
+                "type": "checkbox",
+                "id": "fondo_transparente",
+                "label": "Activar fondo transparente",
+                "default": false
+            },
+            {
+                "type": "checkbox",
+                "id": "header-fijo",
+                "label": "Activar header fijo",
+                "default": false
+            }
+        ],
+        "presets": [
+            {
+                "name": "Header"
+            }
+        ]
+    }
+{% endschema %}
