@@ -1,0 +1,33 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "shopify://shop_images/Gemini_Generated_Image_rtspb5rtspb5rtsp-removebg-preview.png",
+          "logo_width": 160,
+          "menu_header": "men-norden",
+          "carrito_check": true,
+          "fondo_header": "#f4ebdd",
+          "color_texto": "#30251f",
+          "fondo_transparente": false,
+          "header-fijo": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {}
+      }
+    },
+    "content_for_index": []
+  }
+}
