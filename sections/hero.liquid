@@ -1,9 +1,36 @@
+{{ 'hero.css' | asset_url | stylesheet_tag }}
+
+<style>
+    .hero__fondo {
+        background-color: {{ section.settings.fondo_hero }}
+    }
+</style>
+
 <section class="hero">
-    <div class="hero__imagen">
+    <div class="hero__fondo">
+        {% if section.settings.hero_imagen %}
         {{ section.settings.hero_imagen
             |image_url: width: 500
             |image_tag: alt: shop.name
         }}
+        {% endif %}
+
+        <div class="hero__contenido">
+            <small>DESCUBRE NORDÉN</small>
+            <h2>{{ section.settings.titulo }}</h2>
+            <p>{{ section.settings.subtitulo }}</p>
+
+            <div class="hero__botones">
+                <a class="btn-explorar-cafes" href="{{ section.settings.enlace_boton_principal }}">{{ section.settings.texto_boton_principal }}</a>
+
+                {% if section.settings.check_boton_secundario %}
+                    <a class="btn-nuestros-metodos" href="{{ section.settings.enlace_boton_secundario }}">
+                        {{ section.settings.texto_boton_secundario }}
+                    </a>
+                {% endif %}
+
+            </div>
+        </div>
     </div>
 </section>
 
@@ -15,6 +42,52 @@
                 "type": "image_picker",
                 "id": "hero_imagen",
                 "label": "Imagen del Hero"
+            },
+            {
+                "type": "color",
+                "id": "fondo_hero",
+                "label": "Fondo del hero",
+                "default": "#ffffff"
+            },
+            {
+                "type": "text",
+                "id": "titulo",
+                "label": "Titulo",
+                "default": "Tu momento. Tu café. Tu ritual."
+            },
+            {
+                "type": "textarea",
+                "id": "subtitulo",
+                "label": "Subtitulo",
+                "default": "Descubre cafés de especialidad y encuentra los métodos ideales para preparar una taza extraordinaria en casa."
+            },
+            {
+                "type": "text",
+                "id": "texto_boton_principal",
+                "label": "Texto del boton principal",
+                "default": "Explorar cafés"
+            },
+            {
+                "type": "text",
+                "id": "texto_boton_secundario",
+                "label": "Texto del boton secundario",
+                "default": "Nuestro métodos"
+            },
+            {
+                "type": "checkbox",
+                "id": "check_boton_secundario",
+                "label": "Mostrar/Ocultar boton",
+                "default": true
+            },
+            {
+                "type": "url",
+                "id": "enlace_boton_principal",
+                "label": "Enlace para el boton principal"
+            },
+            {
+                "type": "url",
+                "id": "enlace_boton_secundario",
+                "label": "Enlace para el boton secundario"
             }
         ],
         "presets": [

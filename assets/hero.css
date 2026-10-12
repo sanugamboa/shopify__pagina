@@ -1,0 +1,54 @@
+.hero__fondo {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding: 40px;
+}
+
+.hero__fondo img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.hero__contenido small {
+    font-weight: bold;
+    color: #8b6b59;
+}
+
+.hero__contenido h2 {
+    font-size: 64px;
+    color: #30251f;
+}
+
+.hero__contenido p {
+    font-size: 32px;
+    color: #30251f;
+}
+
+.hero__botones {
+    margin-top: 48px;
+    display: flex;
+    gap: 16px;
+}
+
+.hero__botones a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-explorar-cafes {
+    color: white;
+    background-color: #30251f;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.btn-nuestros-metodos {
+    color: #30251f;
+    background-color: #f4ebdd;
+    border: solid 1px #30251f;
+    padding: 16px;
+    border-radius: 8px;
+}
